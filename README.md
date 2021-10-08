@@ -6,7 +6,7 @@ Generates Shared Access Keys to connect to Azure IoT Hub from ES6 modules
 
 ```html
 <script type="module">
-import {getIoTHubV2Credentials} from '../iothub-auth.js'
+import {getIoTHubV2Credentials} from 'https://www.unpkg.com/iothub-auth'
 ; (async ()=> {
     const [username, password] = await getIoTHubV2Credentials(
         'host', 
