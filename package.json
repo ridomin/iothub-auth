@@ -1,0 +1,20 @@
+{
+  "name": "iothub-auth",
+  "version": "0.0.1",
+  "description": "Generates Shared Access Keys to connect to Azure IoT Hub",
+  "main": "iothub-auth.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridomin/iothub-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ridomin/iothub-auth/issues"
+  },
+  "homepage": "https://github.com/ridomin/iothub-auth#readme"
+}
