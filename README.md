@@ -2,6 +2,8 @@
 
 Generates Shared Access Keys to connect to Azure IoT Hub from ES6 modules
 
+[![Node.js CI](https://github.com/ridomin/iothub-auth/actions/workflows/node.js.yml/badge.svg)](https://github.com/ridomin/iothub-auth/actions/workflows/node.js.yml)
+
 ## Usage
 
 ```html
