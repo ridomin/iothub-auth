@@ -1,5 +1,5 @@
 /**
- * Creates the creadentials (username/password) to connect to AzureIoT Hub using the preview api-version
+ * Creates the credentials (username/password) to connect to AzureIoT Hub with SasKeys using the preview api-version
  * 
  * @param {string} hostname 
  * @param {string} deviceId 
