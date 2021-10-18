@@ -7,7 +7,7 @@
  * @param {number} expiresInMins 
  * @returns 
  */
-export const getIoTHubV2Credentials = async (hostname, deviceId, key, expiresInMins) => {
+export const getIoTHubV2Credentials = async (hostname, deviceId, key, expiresInMins = 5) => {
     const apiversion = '2021-06-30-preview'
     const generateToken = async (resource, key, expires) => {
         const createHmac = async (msg, key) => {
