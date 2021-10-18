@@ -1,5 +1,6 @@
 /**
- *
+ * Creates an HMAC SHA-256 signature
+ * 
  * @param {String} key
  * @param {String} msg
  * @returns {Promise<string>}
@@ -23,7 +24,7 @@
  * @param {string} deviceId 
  * @param {string} key 
  * @param {number} expiresInMins 
- * @returns 
+ * @returns {Promise<(string: username,string: password,string: websocket)>} username, password, websocket
  */
 export const getIoTHubV2Credentials = async (hostname, deviceId, key, expiresInMins = 5) => {
     const apiversion = '2021-06-30-preview'
@@ -31,7 +32,8 @@ export const getIoTHubV2Credentials = async (hostname, deviceId, key, expiresInM
     const expires = Math.ceil(Date.now() + expiresInMins * 60)
     const username = `av=${apiversion}&h=${hostname}&did=${deviceId}&am=SASb64&se=${expires}`
     const password = await generateV2Token(`${hostname}\n${deviceId}`, key, expires)
-    return [username, password]
+    const websocket = 'mqtt'
+    return [username, password, websocket]
 }
 
 /**
@@ -42,16 +44,17 @@ export const getIoTHubV2Credentials = async (hostname, deviceId, key, expiresInM
  * @param {string} deviceId 
  * @param {string} key 
  * @param {number} expiresInMins 
- * @returns 
+ * @returns {Promise<(string: username,string: password,string: websocket)>} username, password, websocket
  */
  export const getIoTHubV1Credentials = async (hostname, deviceId, key, expiresInMins = 5) => {
     const apiversion = '2020-09-30'
     const generateToken = async (resourceUri, key, expiresv1) => {
         const hmac = await createHmac(`${resourceUri}\n${expiresv1}`, key)
-        return `SharedAccessSignature sr=${resourceUri}&sig=${hmac}&se=${expiresv1}`
+        return `SharedAccessSignature sr=${resourceUri}&sig=${encodeURIComponent(hmac)}&se=${expiresv1}`
     }
     const expires = Math.ceil(Date.now() + expiresInMins * 60)
     const username = `${hostname}/${deviceId}/?api-version=${apiversion}`
     const password = await generateToken(`${hostname}/devices/${deviceId}`, key, expires)
-    return [username, password]
+    const websocket = '$iothub/websocket?iothub-no-client-cert=true'
+    return [username, password, websocket]
 }
