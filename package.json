@@ -1,6 +1,6 @@
 {
   "name": "iothub-auth",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generates Shared Access Keys to connect to Azure IoT Hub",
   "main": "iothub-auth.js",
   "repository": {
