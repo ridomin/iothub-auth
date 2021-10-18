@@ -51,7 +51,7 @@ export const getIoTHubV2Credentials = async (hostname, deviceId, key, expiresInM
         return `SharedAccessSignature sr=${resourceUri}&sig=${hmac}&se=${expiresv1}`
     }
     const expires = Math.ceil(Date.now() + expiresInMins * 60)
-    const username = `${hostname}/${deviceId}/?api-version=${api-version}`
+    const username = `${hostname}/${deviceId}/?api-version=${apiversion}`
     const password = await generateToken(`${hostname}/devices/${deviceId}`, key, expires)
     return [username, password]
 }
