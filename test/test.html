@@ -13,22 +13,26 @@
         ; (async ()=> {
             let output;
             output = '<h1>V1Creds</h1>'
-            const [usernamev1, passwordv1] = await getIoTHubV1Credentials(
+            const [usernamev1, passwordv1, websocketv1] = await getIoTHubV1Credentials(
                 'host', 
                 'device', 
                 'MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA=')
             output += usernamev1
             output += '<br />'
             output += passwordv1
+            output += '<br />'
+            output += websocketv1
 
             output+='<h1>V2Creds</h1>'
-            const [username, password] = await getIoTHubV2Credentials(
+            const [username, password, websocket] = await getIoTHubV2Credentials(
                 'host', 
                 'device', 
                 'MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA=')
             output += username
             output += '<br />'
             output += password
+            output += '<br />'
+            output += websocket
 
             document.write(output)
         })()
