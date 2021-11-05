@@ -8,8 +8,8 @@ Generates Shared Access Keys to connect to Azure IoT Hub from ES6 modules
 
 IoT Hub has two authentication schemes:
 
-- V1 `getIoTHubV1Credentials` Used for *classic* hubs, using `api-version=2020-09-30`
-- V2 `getIoTHubV2Credentials` Used for *classic* hubs, using `api-version=2021-06-30-preview`
+- V1 `getIoTHubV1Credentials` Used for *classic* hubs:  `api-version=2020-09-30`
+- V2 `getIoTHubV2Credentials` Used for *broker-enabled* hubs: `api-version=2021-06-30-preview`
 
 ## Usage
 
