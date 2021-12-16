@@ -58,3 +58,4 @@ export const getIoTHubV2Credentials = async (hostname, deviceId, key, expiresInM
     const websocket = '$iothub/websocket?iothub-no-client-cert=true'
     return [username, password, websocket]
 }
+
